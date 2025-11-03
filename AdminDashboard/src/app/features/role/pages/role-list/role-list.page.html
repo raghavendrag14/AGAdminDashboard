@@ -1,0 +1,9 @@
+<div *ngIf="loading()">Loading...</div>
+<ul>
+  <li *ngFor="let role of roles()">
+    <strong>{{ role.name }}</strong> - {{ role.description || '' }}
+    <div>
+      <button (click)="assignPrivileges(role.id)">Assign sample privileges</button>
+    </div>
+  </li>
+</ul>
