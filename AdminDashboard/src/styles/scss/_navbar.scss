@@ -1,0 +1,123 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--nav-background);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+  z-index: 1200;
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--on-primary);
+  text-decoration: none;
+  
+}
+.compay-logo{
+  margin-right: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 40px;
+  height: auto;
+}
+
+/* Menu items */
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: var(--on-primary);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.navbar-menu a:hover {
+  opacity: 0.8;
+}
+
+/* Profile section */
+.navbar-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-profile img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--on-primary);
+}
+
+/* Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: var(--surface);
+  color: var(--text-color);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1200;
+}
+
+.profile-dropdown.active {
+  display: flex;
+}
+
+.profile-dropdown a {
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background 0.2s;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(0,0,0,0.08);
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: inline-block;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  vertical-align: middle;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--on-primary);
+  margin: 4px;    
+  border-radius: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}

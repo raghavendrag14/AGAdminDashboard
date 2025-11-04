@@ -1,17 +1,27 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
-import { provideZoneChangeDetection } from '@angular/core';
-import { importProvidersFrom } from '@angular/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { appRoutes } from './app/app.routes';
-import { CoreModule } from './app/core/core.module';
+import {
+  authInterceptor,
+  errorInterceptor,
+  loggingInterceptor,
+  retryInterceptor
+} from './app/core/interceptors/interceptors';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true, runCoalescing: true }),
-    provideHttpClient(withInterceptorsFromDi()),
-    provideRouter(appRoutes),
-    importProvidersFrom(CoreModule)
+    provideRouter(appRoutes, withComponentInputBinding()),
+    provideHttpClient(
+      withInterceptors([
+        authInterceptor,
+        errorInterceptor,
+        loggingInterceptor,
+        retryInterceptor
+      ])
+    )
   ]
-}).catch(err => console.error(err));
+}).catch((err) => console.error(err));
+
+

@@ -1,0 +1,62 @@
+/* ================================
+   Page Header with Breadcrumb
+   ================================ */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.page-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.page-header .page-title {
+  margin: 0;
+}
+
+.page-header-breadcrumb {
+  font-size: 0.875rem;
+}
+
+.page-header-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Dark mode */
+[data-theme="dark"] .page-header {
+  border-color: #444;
+}
+[data-theme="dark"] .page-header-breadcrumb {
+  color: #aaa;
+}
+[data-theme="dark"] .page-header-actions button {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+[data-theme="dark"] .page-header-actions button:hover {
+  background: #3a3a3a;
+  border-color: #555;
+}
+[data-theme="dark"] .page-header-actions button:active {
+  background: #444;
+  border-color: #666;
+}
+[data-theme="dark"] .page-header-actions button:disabled {
+  background: #2a2a2a;
+  color: #666;
+  border-color: #333;
+}
+[data-theme="dark"] .page-header-actions button i {
+  color: #f1f1f1;
+}

@@ -1,0 +1,80 @@
+@use 'variables' as *;
+body {
+  font-family: $font-family;
+  font-optical-sizing: auto;
+  font-size: $body1-size;
+  color: var(--text-color);
+  background: var(--background);
+  
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.h1 { font-size: $h1-size; font-weight: 300; line-height: 1.2; color: var(--text-color); }
+.h2 { font-size: $h2-size; font-weight: 400; color: var(--text-color); }
+.h3 { font-size: $h3-size; font-weight: 500; color: var(--text-color); }
+.body1 { font-size: $body1-size; line-height: 1.5; color: var(--text-color); }
+.button { font-size: $button-size; text-transform: uppercase; }
+
+
+
+
+/* ================================
+   Typography Standards
+   ================================ */
+
+/* Page Title */
+.page-title {
+  font-size: 2rem;         /* ~32px */
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #212121;
+  line-height: 1.3;
+}
+
+/* Section Heading */
+.section-heading {
+  font-size: 1.5rem;       /* ~24px */
+  font-weight: 500;
+  margin: 1rem 0 0.5rem;
+  color: #424242;
+  line-height: 1.4;
+}
+
+/* Subheading */
+.subheading {
+  font-size: 1.125rem;     /* ~18px */
+  font-weight: 400;
+  margin: 0.5rem 0 1rem;
+  color: #616161;
+  line-height: 1.5;
+}
+
+/* Caption / Small Text */
+.caption {
+  font-size: 0.875rem;     /* ~14px */
+  font-weight: 400;
+  color: #757575;
+  line-height: 1.4;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .page-title { color: #fafafa; }
+[data-theme="dark"] .section-heading { color: #e0e0e0; }
+[data-theme="dark"] .subheading { color: #bbb; }
+[data-theme="dark"] .caption { color: #999; }
+
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .page-title { font-size: 1.6rem; }
+  .section-heading { font-size: 1.3rem; }
+  .subheading { font-size: 1rem; }
+}
+@media (max-width: 480px) {
+  .page-title { font-size: 1.4rem; }
+  .section-heading { font-size: 1.1rem; }
+  .subheading { font-size: 0.95rem; }
+}
+
+

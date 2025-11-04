@@ -1,0 +1,108 @@
+/* ================================
+   Pagination Component
+   ================================ */
+
+.pagination-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.pagination a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.pagination .active a {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Page size selector */
+.page-size {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.page-size select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: var(--surface);
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* Dark mode */
+[data-theme="dark"] .pagination a {
+  background: #2a2a2a;
+  color: #f1f1f1;
+}
+[data-theme="dark"] .pagination a:hover {
+  background: #3a3a3a;
+}
+[data-theme="dark"] .pagination .active a {
+  background: var(--primary);
+  color: #fff;
+}
+[data-theme="dark"] .page-size select {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f1f1f1;
+}
+
+/* Responsive compact mode */
+@media (max-width: 480px) {
+  .pagination li {
+    display: none;
+  }
+  .pagination li:first-child,     /* prev */
+  .pagination li:last-child,      /* next */
+  .pagination li.active {         /* current */
+    display: inline-block;
+  }
+}
+@media (max-width: 360px) {
+  .pagination-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .page-size {
+    margin-top: 0.5rem;
+  }
+}
+/* ================================
+   End Pagination Component
+   ================================ */
+   

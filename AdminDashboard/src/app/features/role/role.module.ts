@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoleListPage } from './pages/role-list/role-list.page';
-import { RoleRoutingModule } from './role-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [RoleListPage],
-  imports: [CommonModule, RoleRoutingModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    
+  ]
 })
 export class RoleModule {}

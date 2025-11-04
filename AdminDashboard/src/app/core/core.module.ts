@@ -6,11 +6,10 @@ import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { RetryInterceptor } from './interceptors/retry.interceptor';
 
 @NgModule({
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: RetryInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
-  ]
+  // CoreModule previously provided class-based HTTP_INTERCEPTORS.
+  // We now register functional interceptors via `provideHttpClient(withInterceptors(...))`
+  // in `main.ts`. Keep this module present for other core providers, but remove
+  // HTTP_INTERCEPTORS to avoid duplicate/early provider initialization.
+  providers: []
 })
 export class CoreModule {}

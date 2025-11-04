@@ -1,0 +1,131 @@
+/* ================================
+   Multi-Select Dropdown with Select All / Clear All
+   ================================ */
+
+.multiselect {
+  position: relative;
+  display: inline-block;
+  width: 280px;
+  font-size: 0.95rem;
+}
+
+.multiselect-toggle {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.multiselect-toggle:after {
+  content: "▾";
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Chips for selected items */
+.multiselect-chip {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.multiselect-chip .remove {
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* Dropdown menu */
+.multiselect-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-top: 0.4rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none;
+  z-index: 2000;
+}
+
+.multiselect.open .multiselect-menu {
+  display: block;
+}
+
+.multiselect-option,
+.multiselect-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.multiselect-option:hover,
+.multiselect-action:hover {
+  background: #f5f5f5;
+}
+
+.multiselect-action {
+  font-weight: 600;
+  color: #1976d2;
+  border-bottom: 1px solid #eee;
+}
+
+.multiselect-option input[type="checkbox"] {
+  accent-color: #2196f3;
+}
+
+/* Dark mode */
+[data-theme="dark"] .multiselect-toggle {
+  background: #2c2c2c;
+  border-color: #444;
+  color: #eee;
+}
+
+[data-theme="dark"] .multiselect-chip {
+  background: #444;
+  color: #90caf9;
+}
+
+[data-theme="dark"] .multiselect-menu {
+  background: #2c2c2c;
+  border-color: #444;
+}
+
+[data-theme="dark"] .multiselect-action {
+  color: #90caf9;
+  border-color: #555;
+}
+[data-theme="dark"] .multiselect-option:hover,
+[data-theme="dark"] .multiselect-action:hover {
+  background: #444;
+}
+[data-theme="dark"] .multiselect-option {
+  color: #ddd;
+}   
+[data-theme="dark"] .multiselect-option input[type="checkbox"] {
+  accent-color: #64b5f6;
+}
+[data-theme="dark"] .multiselect-option input[type="checkbox"]:checked {
+  accent-color: #90caf9;
+}
+    

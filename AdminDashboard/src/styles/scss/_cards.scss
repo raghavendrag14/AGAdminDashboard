@@ -1,0 +1,120 @@
+/* Card component - responsive + dark mode + mobile friendly */
+
+/* make layout predictable */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Grid of cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* responsive columns */
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Card base */
+.card {
+  background: var(--surface);
+  color: var(--text-color);
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* IMPORTANT: allows children to shrink on small screens */
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 18px rgba(0,0,0,0.18);
+}
+
+/* Image: always responsive and cover style */
+.card img {
+  width: 100%;
+  height: 160px;           /* fixed-ish height so cards align */
+  object-fit: cover;       /* crop center */
+  display: block;
+}
+
+/* allow alternative smaller images */
+.card--no-image img {
+  display: none;
+}
+
+/* Body grows and keeps actions at bottom */
+.card-body {
+  padding: 1rem;
+  flex: 1 1 auto;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary, rgba(0,0,0,0.7));
+}
+
+/* Actions area sticks to bottom */
+.card-actions {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap; /* allows buttons to wrap on very small screens */
+  background: transparent;
+}
+
+/* Buttons in actions: allow full width on small screens */
+.card-actions .btn {
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .card-actions {
+    gap: 0.5rem;
+  }
+  .card-actions .btn {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+/* Dark mode tweaks */
+[data-theme="dark"] .card {
+  background: var(--surface);
+  color: var(--text-color);
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.6);
+}
+[data-theme="dark"] .card-actions {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+[data-theme="dark"] .card-text {
+  color: rgba(255,255,255,0.78);
+}
+
+/* Mobile specific: single column, smaller image height */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .card img {
+    height: 140px;
+  }
+}
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr; /* force single column on small phones */
+  }
+  .card {
+    border-radius: 10px;
+  }
+  .card img {
+    height: 120px;
+  }
+}

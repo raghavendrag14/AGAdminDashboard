@@ -1,0 +1,45 @@
+:root {
+  --primary: #314559;
+  --secondary: #03da0e;
+  --error: #b00020;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --on-primary: #ffffff;
+  --on-secondary: #000000;
+  --text-color: #000000;
+  --input-color: #000000;
+  --nav-background: #120847;
+  --stickyBackground: #120847;
+  --stickyColor: #ffffff;
+  --table-hover-bg: #eeeeee;
+  --table-hover-color: #000000;
+}
+
+
+[data-theme="dark"] {
+  --primary: #120847; 
+  --secondary: #03dac6;
+  --error: #cf6679;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --on-primary: #ffffff;
+  --on-secondary: #ffffff;
+  --text-color: #ffffff;
+  --input-color: #ffffff;
+  --nav-background: #1e1e1e;
+  --stickyBackground: #1e1e1e;
+  --stickyColor: #ffffff;
+  --table-hover-bg: #eeeeee;
+  --table-hover-color: #000000;
+}
+
+$font-family: "Merriweather", serif;
+$h1-size: 6rem;
+$h2-size: 3.75rem;
+$h3-size: 3rem;
+$body1-size: 1rem;
+$button-size: 0.875rem;
+$spacing-unit: 8px;
+$shadow-1: 0px 1px 3px rgba(0,0,0,0.2), 0px 1px 1px rgba(0,0,0,0.14), 0px 2px 1px rgba(0,0,0,0.12);
+$shadow-4: 0px 4px 5px rgba(0,0,0,0.2), 0px 1px 10px rgba(0,0,0,0.14), 0px 2px 4px rgba(0,0,0,0.12);
+

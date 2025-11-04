@@ -1,0 +1,88 @@
+
+.table-wrapper {
+  height: 320px;
+  border: 1px solid var(--borderColor);
+  overflow: auto;
+}
+
+table {
+  border-spacing: 0;
+}
+
+thead {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+tbody {
+  font-size: 14px;
+}
+
+th, td {
+  padding: 18px 24px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+tbody tr:hover ,tbody tr:focus, tbody tr:active {
+    background-color: var(--table-hover-bg);
+    color: var(--table-hover-color);
+}
+
+
+/*
+STICKY ROW
+Normal css box-shadow works for the header as it is a single html element
+*/
+
+tr.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--stickyBackground);
+  box-shadow: 0 0 6px rgba(0,0,0,0.25);
+  color:var(--stickyColor)
+}
+
+
+/*
+STICKY COLUMN
+Avoid undesirable overlapping shadows by creating a faux shadow on the ::after psudo-element instead of using the css box-shadow property.
+*/
+
+th.sticky,
+td.sticky {
+  position: sticky;
+  left: 0;
+  background: var(--stickyBackground);
+  color:var(--stickyColor)
+}
+
+th.sticky::after,
+td.sticky::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 0;
+  bottom: -1px;
+  width: 5px;
+  border-left: 1px solid var(--borderColor);
+  background: linear-gradient(90deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0) 100%);
+}
+
+th.sticky::before,
+td.sticky::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: -1px;
+  width: 5px;
+  border-right: 1px solid var(--borderColor);
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.08) 100%);
+}
