@@ -1,0 +1,36 @@
+<div 
+  id="globalModalOverlay"
+  class="modal-overlay" 
+  [class.active]="modal.modalState$ | async"
+  (click)="onOverlayClick($event)"
+>
+  <div 
+    id="globalModal"
+    class="modal"
+    [ngClass]="{
+      'modal-sm': (modal.modalSize$ | async) === 'sm',
+      'modal-md': (modal.modalSize$ | async) === 'md',
+      'modal-lg': (modal.modalSize$ | async) === 'lg'
+    }"
+  >
+    <div class="modal-header">
+      {{ (modal.modalContent$ | async)?.title }}
+      <button class="modal-close" (click)="close()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- dynamic host always present -->
+      <ng-container #dynamicHost></ng-container>
+
+      <!-- Capture modal content once to avoid repeated async pipes and multiple structural directives -->
+      <ng-container *ngIf="modal.modalContent$ | async as content">
+
+        <!-- 1. Template mode -->
+        <ng-container *ngIf="content?.template">
+          <ng-container [ngTemplateOutlet]="content.template" [ngTemplateOutletContext]="content.context"></ng-container>
+        </ng-container>
+
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,677 @@
+  <div class="row">
+      <div class="col-12 col-lg-12 col-sm-12 col-md-12">
+        <app-page-header [title]="'Dashboard'" [actionsTemplate]="actionsTemplate"></app-page-header>
+
+<ng-template #actionsTemplate>
+ <div class="page-header-actions">
+            <button class="btn btn-primary">Add New</button>
+            <button class="btn btn-secondary">Export</button>
+            
+<div class="dropdown" tabindex="0">
+  <button type="button" class="btn btn-primary">...</button>
+  <div class="dropdown-menu">
+    <a href="#">New File</a>
+    <a href="#">Duplicate</a>
+    <a href="#">Archive</a>
+    <hr />
+    <a href="#">Settings</a>
+    <a href="#">Help</a>
+  </div>
+</div>
+          </div>
+</ng-template>
+
+        <div class="page-header">
+          <!-- Left: Title + Breadcrumb -->
+          <div class="page-header-left">
+            <h1 class="page-title">Dashboard</h1>
+            <nav class="page-header-breadcrumb" aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li class="active">Dashboard</li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Right: Actions -->
+         
+        </div>
+
+      </div>
+    </div>
+    <div class="clearafter"></div>
+    <div class="row">
+      <div class="col-12 col-md-12 col-sm-12 col-sm-12">
+        <div class="page-header">
+          <h1 class="page-title">Dashboard</h1>
+          <h2 class="section-heading">User Statistics</h2>
+          <p class="subheading">An overview of recent activity and performance</p>
+          <p class="caption">Last updated: 5 mins ago</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-12 col-sm-12 col-lg-12">
+        <div class="section">
+          <h2 class="h2">Tabs</h2>
+          <div class="tabs">
+            <button class="tab " onclick="openTab(event, 'Sidebar')">
+              <!-- <i class="material-icons">Sidebar</i> -->
+              <span>Sidebar</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'breadcrumb')">
+              <!-- <i class="material-icons">breadcrumb</i> -->
+              <span>breadcrumb</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'Buttons')">
+              <!-- <i class="material-icons">Buttons</i> -->
+              <span>Buttons</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'Toast')">
+              <!-- <i class="material-icons">Toast</i> -->
+              <span>Toast</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'Pagination')">
+              <!-- <i class="material-icons">Pagination</i> -->
+              <span>Pagination</span>
+            </button>
+            <button class="tab active" onclick="openTab(event, 'Table')">
+              <!-- <i class="material-icons">Table</i> -->
+              <span>Table</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'Modals')">
+              <!-- <i class="material-icons">Modals</i> -->
+              <span>Modals</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'Forms')">
+              <!-- <i class="material-icons">Forms</i> -->
+              <span>Forms</span>
+            </button>
+            <button class="tab" onclick="openTab(event, 'Cards')">
+              <!-- <i class="material-icons">Cards</i> -->
+              <span>Cards</span>
+            </button>
+            
+            <button class="tab" onclick="openTab(event, 'multiselect')">
+              <!-- <i class="material-icons">Cards</i> -->
+              <span>multiselect</span>
+            </button>
+          </div>
+
+          <div id="Sidebar" class="tab-content active">
+            <div class="tab-content-inner">
+              <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                  <div class="section">
+                    <h2 class="h2">Sidebar (Drawer)</h2>
+                      <button class="menu-button" (click)="sidebar.toggleLeft()">☰ Menu</button>
+  <h1>Admin Dashboard</h1>
+  <button class="profile-button" (click)="sidebar.toggleRight()">👤 Profile</button>
+</div>
+                  <div class="section">
+                    
+
+                    
+                  
+
+                    <!-- Overlay -->
+                    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div id="breadcrumb" class="tab-content">
+            <div class="tab-content-inner">
+              <div class="section">
+                <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                  </ul>
+                </nav>
+
+              </div>
+            </div>
+
+          </div>
+          <div id="Buttons" class="tab-content">
+            <div class="tab-content-inner">
+
+              <!-- Buttons -->
+              <div class="section">
+                <h2 class="h2">Buttons</h2>
+                <button class="btn btn-primary">Primary</button>
+                <button class="btn btn-secondary">Default</button>
+              </div>
+              <!-- Button Groups -->
+
+              <div class="section">
+                <div class="d-flex justify-end" style="gap: 0.5rem;">
+                  <button class="btn btn-primary">Save</button>
+                  <button class="btn btn-secondary">Cancel</button>
+                  <button class="btn btn-danger">Delete</button>
+                </div>
+
+                <div class="d-flex justify-between" style="width: 100%;">
+                  <button class="btn btn-primary">Prev</button>
+                  <button class="btn btn-secondary">Next</button>
+                </div>
+                <div class="d-flex justify-center" style="gap: 1rem;">
+                  <button class="btn btn-success">Yes</button>
+                  <button class="btn btn-danger">No</button>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <div id="Toast" class="tab-content">
+            <div class="tab-content-inner">
+
+              <!-- Toast Notifications -->
+              <div class="section">
+                <h2 class="h2">Toast Notifications</h2>
+                <button class="btn btn-success" onclick="showToast('Success! Operation completed.', 'success')">Show
+                  Success</button>
+                <button class="btn btn-danger" onclick="showToast('Error! Something went wrong.', 'error')">Show
+                  Error</button>
+                <button class="btn btn-warning" onclick="showToast('Warning! Check your inputs.', 'warning')">Show
+                  Warning</button>
+                <button class="btn btn-primary" onclick="showToast('Info! Here is some info.', 'info')">Show
+                  Info</button>
+              </div>
+              <!-- Toaster container -->
+              <div id="toaster" class="toaster"></div>
+
+
+            </div>
+          </div>
+          <div id="Pagination" class="tab-content">
+            <div class="tab-content-inner">
+              <!-- Pagination -->
+              <div class="section">
+                <h2 class="h2">Responsive Pagination</h2>
+
+                <div class="pagination-container">
+                  <!-- Page size dropdown -->
+                  <div class="page-size">
+                    <label for="pageSize">Rows per page:</label>
+                    <select id="pageSize" onchange="changePageSize(this.value)">
+                      <option>5</option>
+                      <option>10</option>
+                      <option selected>25</option>
+                      <option>50</option>
+                    </select>
+                  </div>
+
+                  <!-- Pagination -->
+                  <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li class="active"><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Table" class="tab-content">
+            <div class="tab-content-inner">
+
+              <!-- Table -->
+              <div class="section">
+                <h2 class="h2">Responsive Table</h2>
+                <div class="table-wrapper">
+                  <table>
+                    <thead>
+                      <tr class="sticky">
+                        <th class="sticky">Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                        <th>Column 4</th>
+                        <th>Column 5</th>
+                        <th>Column 6</th>
+                        <th>Column 7</th>
+                        <th>Column 8</th>
+                        <th>Column 9</th>
+                        <th>Column 10</th>
+                        <th>Column 11</th>
+                        <th>Column 12</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                      <tr>
+                        <td class="sticky">Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Modals" class="tab-content">
+            <div class="tab-content-inner">
+
+              <!-- Modals -->
+              <div class="section">
+                <h2 class="h2">Modals</h2>
+                <button class="btn btn-primary" onclick="openModal('modalMedium')">Open Medium Modal</button>
+                <button class="btn btn-secondary" onclick="openModal('modalSmall')">Open Small Modal</button>
+                <button class="btn btn-primary" onclick="openModal('modalLarge')">Open Large Modal</button>
+                <button class="btn btn-secondary" onclick="openModal('modalConfirm')">Open Confirmation</button>
+
+
+                <!-- Medium Modal -->
+                <div id="modalMedium" class="modal-overlay">
+                  <div class="modal modal-md">
+                    <div class="modal-header">
+                      Medium Modal
+                      <button class="modal-close" onclick="closeModal('modalMedium')">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>This is a medium modal with responsive design.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-secondary" onclick="closeModal('modalMedium')">Close</button>
+                      <button class="btn btn-primary">Save</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Small Modal -->
+                <div id="modalSmall" class="modal-overlay">
+                  <div class="modal modal-sm">
+                    <div class="modal-header">
+                      Small Modal
+                      <button class="modal-close" onclick="closeModal('modalSmall')">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>This is a small modal for alerts or quick info.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" onclick="closeModal('modalSmall')">OK</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Large Modal -->
+                <div id="modalLarge" class="modal-overlay">
+                  <div class="modal modal-lg">
+                    <div class="modal-header">
+                      Large Modal
+                      <button class="modal-close" onclick="closeModal('modalLarge')">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>This is a large modal, useful for forms or extended content.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-secondary" onclick="closeModal('modalLarge')">Cancel</button>
+                      <button class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Confirmation Modal (static) -->
+                <div id="modalConfirm" class="modal-overlay">
+                  <div class="modal modal-sm" data-static="true">
+                    <div class="modal-header">
+                      Confirm
+                      <button class="modal-close" onclick="closeModal('modalConfirm')">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to continue?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-secondary" onclick="closeModal('modalConfirm')">Cancel</button>
+                      <button class="btn btn-danger">Yes, Continue</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Forms" class="tab-content">
+            <div class="tab-content-inner">
+
+              <!-- Forms -->
+              <div class="section contact-inform form">
+                <h2 class="h2">Forms</h2>
+                <!-- <form>
+                  <div class="form-control">
+                    <label class="form-label" htmlFor="username">Email</label>
+                    <input type="email" name="username" placeholder="Enter email" class="form-input">
+                  </div>
+                  <div class="form-control">
+                    <label class="form-label" htmlFor="password">Password</label>
+                    <input type="password" name="password" placeholder="Enter password" class="form-input">
+                  </div>
+                  <button class="btn btn-primary">Submit</button>
+                </form> -->
+              <form>
+  <!-- Input -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" />
+  </div>
+
+  <div class="form-group error">
+    <label for="email">Email</label>
+    <input type="email" id="email" />
+    <div class="form-message">Please enter a valid email</div>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="form-check">
+    <input type="checkbox" id="remember" />
+    <label for="remember">Remember me</label>
+  </div>
+
+  <!-- Radio -->
+  <div class="form-radio">
+    <input type="radio" id="male" name="gender" />
+    <label for="male">Male</label>
+  </div>
+  <div class="form-radio">
+    <input type="radio" id="female" name="gender" />
+    <label for="female">Female</label>
+  </div>
+</form>
+<form>
+  <div class="form-group">
+    <label for="role">Role</label>
+    <select id="role">
+      <option value="">Select role</option>
+      <option>Admin</option>
+      <option>User</option>
+      <option>Guest</option>
+    </select>
+  </div>
+
+  <div class="form-group error">
+    <label for="country">Country</label>
+    <select id="country">
+      <option value="">Select country</option>
+      <option>India</option>
+      <option>USA</option>
+      <option>UK</option>
+    </select>
+    <div class="form-message">Please select a country</div>
+  </div>
+</form>
+
+
+              </div>
+            </div>
+          </div>
+          <div id="Cards" class="tab-content">
+            <div class="tab-content-inner">
+              <!-- Cards -->
+              <div class="section">
+                <h2 class="h2">Responsive Grid</h2>
+                <div class="">
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="card">
+                        <img src="https://picsum.photos/400/200" alt="Card Image">
+                        <div class="card-body">
+                          <div class="card-title">Card Title</div>
+                          <div class="card-text">This is a responsive Material card. It adapts to light and dark themes.
+                          </div>
+                        </div>
+                        <div class="card-actions">
+                          <button class="btn btn-primary">Action</button>
+                          <button class="btn btn-secondary">Cancel</button>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title">Column 2</div>
+                          <div class="card-text">Responsive column with Material card inside.</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title">Column 3</div>
+                          <div class="card-text">This grid ensures no horizontal scroll and fluid layout.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div id="multiselect" class="tab-content">
+            <div class="tab-content-inner">
+      <div class="multiselect" id="multi1">
+  <div class="multiselect-toggle" onclick="toggleMultiSelect('multi1')">
+    <span class="placeholder">Select Options</span>
+  </div>
+  <div class="multiselect-menu">
+    <div class="multiselect-search">
+      <input type="text" placeholder="Search..." onkeyup="filterMultiSelect('multi1', this.value)">
+    </div>
+
+    <div class="multiselect-action" onclick="selectAllMultiSelect('multi1')">Select All</div>
+    <div class="multiselect-action" onclick="clearAllMultiSelect('multi1')">Clear All</div>
+
+    <label class="multiselect-option">
+      <input type="checkbox" value="Option 1" onchange="updateMultiSelect('multi1')"> Option 1
+    </label>
+    <label class="multiselect-option">
+      <input type="checkbox" value="Option 2" onchange="updateMultiSelect('multi1')"> Option 2
+    </label>
+    <label class="multiselect-option">
+      <input type="checkbox" value="Option 3" onchange="updateMultiSelect('multi1')"> Option 3
+    </label>
+    <label class="multiselect-option">
+      <input type="checkbox" value="Option 4" onchange="updateMultiSelect('multi1')"> Option 4
+    </label>
+  </div>
+</div>
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>

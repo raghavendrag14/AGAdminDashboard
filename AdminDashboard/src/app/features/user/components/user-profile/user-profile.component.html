@@ -1,0 +1,69 @@
+<div class="user-profile">
+  <!-- Loading State -->
+  <div *ngIf="loading()" class="loading-state">
+    <p>Loading profile...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading()" class="error-state">
+    <p class="error-message">⚠️ {{ error }}</p>
+    <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+
+  <!-- Profile Content -->
+  <div *ngIf="user() && !error && !loading()" class="profile-content">
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <span class="avatar-initials">{{ (user().firstName?.charAt(0) || '') + (user().lastName?.charAt(0) || '') }}</span>
+      </div>
+      <div class="profile-info">
+        <h2 class="profile-name">{{ user().firstName }} {{ user().lastName }}</h2>
+        <p class="profile-username">@{{ user().username }}</p>
+      </div>
+    </div>
+
+    <div class="profile-details">
+      <div class="detail-section">
+        <h3>Contact Information</h3>
+        <div class="detail-item">
+          <label>Email:</label>
+          <span>{{ user().email }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Username:</label>
+          <span>{{ user().username }}</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>Account Details</h3>
+        <div class="detail-item">
+          <label>User ID:</label>
+          <span>{{ user()._id }}</span>
+        </div>
+        <div class="detail-item" *ngIf="user().roleId">
+          <label>Role:</label>
+          <span>{{ user().roleId }}</span>
+        </div>
+        <div class="detail-item" *ngIf="user().createdAt">
+          <label>Created:</label>
+          <span>{{ user().createdAt | date: 'medium' }}</span>
+        </div>
+        <div class="detail-item" *ngIf="user().updatedAt">
+          <label>Last Updated:</label>
+          <span>{{ user().updatedAt | date: 'medium' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-actions">
+      <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Empty State (no user and no error) -->
+  <div *ngIf="!user() && !error && !loading()" class="empty-state">
+    <p>User profile not available</p>
+    <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+</div>

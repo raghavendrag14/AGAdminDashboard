@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         console.error('API error intercepted:', error);
         if (error.status === 401) {
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['/login']);
         }
         if (error.status === 403) {
           this.router.navigate(['/forbidden']);

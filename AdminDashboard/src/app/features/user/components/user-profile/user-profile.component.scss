@@ -1,0 +1,120 @@
+.user-profile {
+  padding: 2rem;
+  background: var(--surface, #fff);
+  border-radius: 8px;
+
+  .loading-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary, #666);
+  }
+
+  .error-state {
+    padding: 1.5rem;
+    background: #fee;
+    border: 1px solid #fcc;
+    border-radius: 6px;
+    color: #c33;
+
+    .error-message {
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  .profile-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color, #eee);
+
+    .profile-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+
+      .avatar-initials {
+        text-transform: uppercase;
+      }
+    }
+
+    .profile-info {
+      .profile-name {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-color, #000);
+      }
+
+      .profile-username {
+        margin: 0;
+        color: var(--text-secondary, #666);
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .profile-details {
+    margin-bottom: 2rem;
+
+    .detail-section {
+      margin-bottom: 1.5rem;
+
+      h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-color, #000);
+        margin: 0 0 1rem 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .detail-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border-color, #eee);
+
+        label {
+          font-weight: 500;
+          color: var(--text-secondary, #666);
+          flex: 0 0 150px;
+        }
+
+        span {
+          color: var(--text-color, #000);
+          word-break: break-all;
+          flex: 1;
+          text-align: right;
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  .profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color, #eee);
+  }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .user-profile {
+  .error-state {
+    background: rgba(200, 50, 50, 0.1);
+    border-color: rgba(200, 50, 50, 0.3);
+    color: #ff7f7f;
+  }
+}

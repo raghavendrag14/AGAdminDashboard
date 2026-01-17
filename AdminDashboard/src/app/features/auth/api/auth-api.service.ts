@@ -20,6 +20,6 @@ export class AuthApiService {
   private api = inject(ApiService);
 
   login(data: LoginRequest) {
-    return this.api.post<LoginResponse>('/auth/login', data);
+    return this.api.post<LoginResponse>('auth', data);
   }
 }

@@ -1,0 +1,190 @@
+<!-- Left Sidebar -->
+<div id="left-sidebar" class="left-sidebar left-sidebar open" *ngIf="sidebar.leftOpen()">
+    <!-- <div class="sidebar-header">Menu</div> -->
+    <!-- <nav class="nav" role="navigation">
+        <ul class="nav__list">
+            <li>
+                <input id="group-1" type="checkbox" hidden />
+                <label for="group-1"><span class="fa fa-angle-right"></span> First level</label>
+                <ul class="group-list">
+                    <li><a href="#">1st level item</a></li>
+                    <li>
+                        <input id="sub-group-1" type="checkbox" hidden />
+                        <label for="sub-group-1"><span class="fa fa-angle-right"></span> Second level</label>
+                        <ul class="sub-group-list">
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li>
+                                <input id="sub-sub-group-1" type="checkbox" hidden />
+                                <label for="sub-sub-group-1"><span class="fa fa-angle-right"></span> Third level</label>
+                                <ul class="sub-sub-group-list">
+                                    <li><a href="#">3rd level nav item</a></li>
+                                    <li><a href="#">3rd level nav item</a></li>
+                                    <li><a href="#">3rd level nav item</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <input id="group-2" type="checkbox" hidden />
+                <label for="group-2"><span class="fa fa-angle-right"></span> First level</label>
+                <ul class="group-list">
+                    <li><a href="#">1st level item</a></li>
+                    <li><a href="#">1st level item</a></li>
+                    <li>
+                        <input id="sub-group-2" type="checkbox" hidden />
+                        <label for="sub-group-2"><span class="fa fa-angle-right"></span> Second level</label>
+                        <ul class="sub-group-list">
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li>
+                                <input id="sub-sub-group-2" type="checkbox" hidden />
+                                <label for="sub-sub-group-2"><span class="fa fa-angle-right"></span> Third level</label>
+                                <ul class="sub-sub-group-list">
+                                    <li><a href="#">3rd level nav item</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <input id="group-3" type="checkbox" hidden />
+                <label for="group-3"><span class="fa fa-angle-right"></span> First level</label>
+                <ul class="group-list">
+                    <li><a href="#">1st level item</a></li>
+                    <li><a href="#">1st level item</a></li>
+                    <li>
+                        <input id="sub-group-3" type="checkbox" hidden />
+                        <label for="sub-group-3"><span class="fa fa-angle-right"></span> Second level</label>
+                        <ul class="sub-group-list">
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li>
+                                <input id="sub-sub-group-3" type="checkbox" hidden />
+                                <label for="sub-sub-group-3"><span class="fa fa-angle-right"></span> Third level</label>
+                                <ul class="sub-sub-group-list">
+                                    <li><a href="#">3rd level nav item</a></li>
+                                    <li><a href="#">3rd level nav item</a></li>
+                                    <li><a href="#">3rd level nav item</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <input id="group-4" type="checkbox" hidden />
+                <label for="group-4"><span class="fa fa-angle-right"></span> First level</label>
+                <ul class="group-list">
+                    <li><a href="#">1st level item</a></li>
+                    <li>
+                        <input id="sub-group-4" type="checkbox" hidden />
+                        <label for="sub-group-4"><span class="fa fa-angle-right"></span> Second level</label>
+                        <ul class="sub-group-list">
+                            <li><a href="#">2nd level nav item</a></li>
+                            <li><a href="#">2nd level nav item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav> -->
+
+    <aside class="sidebar">
+        <nav class="menu">
+            <ul>
+                <ng-container *ngFor="let m of menus">
+                    <!-- simple item (no submenu) -->
+                    <li *ngIf="!(m.submenu?.length > 0)">
+                        <a *ngIf="m.link; else nolink" [routerLink]="m.link">
+                            <i [class]="m.icon"></i>{{ m.name }}
+                        </a>
+                        <ng-template #nolink>
+                            <span><i [class]="m.icon"></i>{{ m.name }}</span>
+                        </ng-template>
+                    </li>
+
+                    <!-- item with submenu -->
+                    <li *ngIf="m.submenu?.length > 0" class="menu__group">
+                        <details>
+                            <summary><i [class]="m.icon"></i>{{ m.name }}</summary>
+                            <ul>
+                                <li *ngFor="let c of m.submenu">
+                                    <a *ngIf="c.link; else noChildlink" [routerLink]="c.link">
+                                        <i [class]="c.icon"></i>{{ c.name }}
+                                    </a>
+                                    <ng-template #noChildlink>
+                                        <span><i [class]="c.icon"></i>{{ c.name }}</span>
+                                    </ng-template>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                </ng-container>
+
+            </ul>
+        </nav>
+        <!-- <ng-container *ngIf="menus | async as menus; else staticMenu">
+            <nav class="menu">
+                <ul>
+                    <li *ngFor="let m of menus">
+                        <a *ngIf="m.link; else nolink" [routerLink]="m.link"><i [class]="m.icon"></i>{{ m.name }}</a>
+                        <ng-template #nolink><span><i [class]="m.icon"></i>{{ m.name }}</span></ng-template>
+
+                        <ul *ngIf="m.submenu?.length">
+                            <li *ngFor="let c of m.submenu">
+                                <a *ngIf="c.link; else noChildlink" [routerLink]="c.link"><i [class]="c.icon"></i>{{
+                                    c.name }}</a>
+                                <ng-template #noChildlink><span><i [class]="c.icon"></i>{{ c.name
+                                        }}</span></ng-template>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </ng-container>
+
+        <ng-template #staticMenu>
+            <nav class="menu">
+                <ul>
+                    <li><a routerLink="/dashboard"><i class="icon-home"></i>Dashboard</a></li>
+                    <li><a href="#"><i class="icon-chart"></i>Reports</a></li>
+                    <li><a href="#"><i class="icon-trend"></i>Analytics</a></li>
+
+                    <li class="menu__group">
+                        <details open>
+                            <summary><i class="icon-settings"></i>Settings</summary>
+                            <ul>
+                                <li>
+                                    <details>
+                                        <summary>User Management</summary>
+                                        <ul>
+                                            <li><a href="#">Access Control</a></li>
+                                            <li><a routerLink="/dashboard/users"><i class="icon-users"></i>Users</a>
+                                            </li>
+                                            <li><a routerLink="/dashboard/roles"><i class="icon-lock"></i>Roles</a></li>
+                                            <li><a href="#">Permissions</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><a href="#"><i class="icon-bell"></i>Notifications</a></li>
+                </ul>
+            </nav>
+        </ng-template> -->
+    </aside>
+
+</div>
+<!-- Overlay -->
+<div id="sidebar-overlay" class="sidebar-overlay"></div>

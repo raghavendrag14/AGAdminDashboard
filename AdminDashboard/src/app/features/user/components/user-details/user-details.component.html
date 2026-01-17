@@ -1,0 +1,48 @@
+<div class="user-detail">
+    <ng-container *ngIf="isDelete; else editForm">
+        <p>Are you sure you want to delete user "{{ form.username }}"?</p>
+        <div class="modal-actions">
+            <button type="button" class="btn btn-primary mr-2"  (click)="confirmDelete()">Yes, Delete</button>
+            <button type="button" class="btn btn-secondary"  (click)="cancel()">Cancel</button>
+        </div>
+    </ng-container>
+    <ng-template #editForm>
+        <form (ngSubmit)="save()" #f="ngForm">
+           <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" [(ngModel)]="form.username" name="username" required />
+           </div>
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" [(ngModel)]="form.email" name="email" required />
+           </div>
+              <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" [(ngModel)]="form.firstName" name="firstName" required />
+           </div>
+              <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" [(ngModel)]="form.lastName" name="lastName" required />
+           </div>
+             <div *ngIf="!isEdit" class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" [(ngModel)]="form.password" name="password" required />
+           </div>
+             <div class="form-group">
+            <label for="roleId">Role</label>
+            
+            <select [(ngModel)]="form.roleId" id="roleId" name="roleId" required>
+                    <option value="">Select role</option>
+                    <option *ngFor="let r of data?.roles" [value]="r._id">{{ r.roleName }}</option>
+                </select>
+           </div>
+            
+         
+
+            <div class="modal-actions form-actions d-flex justify-end">
+                <button type="submit" class="btn btn-primary" >{{ isEdit ? 'Update' : 'Create' }}</button>
+                <button type="button" class="btn btn-secondary"  (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+        </ng-template>
+</div>

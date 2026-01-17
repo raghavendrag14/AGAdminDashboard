@@ -7,6 +7,7 @@
 
 table {
   border-spacing: 0;
+  width: 100%;
 }
 
 thead {
@@ -24,6 +25,8 @@ th, td {
   padding: 18px 24px;
   white-space: nowrap;
   border-bottom: 1px solid var(--borderColor);
+  text-align: left;
+  text-transform: capitalize;
 }
 
 tr:last-child td {

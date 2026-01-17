@@ -1,0 +1,27 @@
+ <div class="pagination-container">
+                  <!-- Page size dropdown -->
+                  <div class="page-size form-group ">
+                    <label for="pageSize">Rows per page:</label>
+                    <select id="pageSize" (change)="setPageSize($event.target.value)">
+                      <option [selected]="pageSize === 5">5</option>
+                      <option [selected]="pageSize === 10">10</option>
+                      <option [selected]="pageSize === 25">25</option>
+                      <option [selected]="pageSize === 50">50</option>
+                    </select>
+                  </div>
+
+                  <!-- Pagination -->
+                  <ul class="pagination">
+                    <li [class.disabled]="currentPage() === 1">
+                      <a href="" (click)="$event.preventDefault(); goToPage(currentPage()-1)" aria-label="Previous">&laquo;</a>
+                    </li>
+
+                    <li *ngFor="let p of pageNumbers()" [class.active]="isActive(p)">
+                      <a href="" (click)="$event.preventDefault(); goToPage(p)">{{ p }}</a>
+                    </li>
+
+                    <li [class.disabled]="currentPage() === totalPages()">
+                      <a href="" (click)="$event.preventDefault(); goToPage(currentPage()+1)" aria-label="Next">&raquo;</a>
+                    </li>
+                  </ul>
+                </div>

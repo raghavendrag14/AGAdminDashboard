@@ -6,7 +6,7 @@
   left:0;
   bottom: 0;
   width: 260px;
-  background: var(--surface);
+  background: var(--nav-background);
   color: var(--text-color);
   box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
   transform: translateX(-100%);
@@ -33,7 +33,7 @@
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: var(--primary);
+  color: var(--text-color);
 }
 
 /* Sidebar menu items */
@@ -50,7 +50,7 @@
 .sidebar ul li a {
   display: block;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: 200ms ease;
 }
 
 // .sidebar ul li a:hover {

@@ -7,17 +7,28 @@
   --on-primary: #ffffff;
   --on-secondary: #000000;
   --text-color: #000000;
+  --text-contrast: #ffffff;
   --input-color: #000000;
-  --nav-background: #120847;
-  --stickyBackground: #120847;
+  --nav-background: #002e40;
+  --stickyBackground: #002e40;
   --stickyColor: #ffffff;
   --table-hover-bg: #eeeeee;
   --table-hover-color: #000000;
+  --sidebar-width: 260px;
+  --sidebar-bg: #0f1724;
+  --sidebar-contrast: #0b1220;
+  --muted: #94a3b8;
+  --radius: 0px;
+  --transition: 200ms ease;
+  --dropdown-bg: #ffffff;
+  --border: #e0e0e0;
+  --panel: #f9f9f9;
+  --shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 
 [data-theme="dark"] {
-  --primary: #120847; 
+  --primary: #002e40; 
   --secondary: #03dac6;
   --error: #cf6679;
   --background: #121212;
@@ -31,6 +42,17 @@
   --stickyColor: #ffffff;
   --table-hover-bg: #eeeeee;
   --table-hover-color: #000000;
+  --sidebar-width: 260px;
+  --sidebar-bg: #0f1724;
+  --sidebar-contrast: #0b1220;
+  --muted: #94a3b8;
+  --radius: 10px;
+  --transition: 200ms ease;
+  --dropdown-bg: #2c2c2c;
+  --border: #333333;
+  --panel: #1e1e1e;
+  --shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+
 }
 
 $font-family: "Merriweather", serif;
@@ -43,3 +65,10 @@ $spacing-unit: 8px;
 $shadow-1: 0px 1px 3px rgba(0,0,0,0.2), 0px 1px 1px rgba(0,0,0,0.14), 0px 2px 1px rgba(0,0,0,0.12);
 $shadow-4: 0px 4px 5px rgba(0,0,0,0.2), 0px 1px 10px rgba(0,0,0,0.14), 0px 2px 4px rgba(0,0,0,0.12);
 
+body {
+  font-family: $font-family;
+  background-color: var(--background);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}

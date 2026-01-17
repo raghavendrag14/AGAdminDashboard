@@ -1,0 +1,34 @@
+<div class="sf-container">
+
+  <!-- GLOBAL SEARCH -->
+  <div class="form-group" *ngIf="enableGlobalSearch">
+    <input
+      type="text"
+      [placeholder]="globalPlaceholder"
+      (input)="updateSearch('__any', $event.target.value)"
+    />
+  </div>
+
+  <div *ngIf="!enableGlobalSearch" class="sf-input-group">
+  <!-- SEARCH FIELDS -->
+  <div class="form-group" *ngFor="let sf of searchFields" >
+    <input
+      type="text"
+      [placeholder]="sf.placeholder"
+      (input)="updateSearch(sf.key, $event.target.value)"
+    />
+  </div>
+  </div>
+
+
+  <!-- FILTER FIELDS -->
+  <div class="form-group" *ngFor="let ff of filterFields">
+    <select (change)="updateFilter(ff.key, $event.target.value)">
+      <option value="">Select {{ ff.label }}</option>
+      <option *ngFor="let opt of ff.options" [value]="opt.value">
+        {{ opt.label }}
+      </option>
+    </select>
+  </div>
+
+</div>

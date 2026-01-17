@@ -1,0 +1,18 @@
+.sf-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: end;
+
+  input{
+    width: 400px;
+  }
+  select {
+    width: 180px;
+  }
+}
+.sf-input-group{
+    display: flex;
+   gap: 20px;
+}

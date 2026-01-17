@@ -51,7 +51,7 @@
   font-weight: 600;
   font-size: 1.1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
 }
 
@@ -60,12 +60,15 @@
   line-height: 1.5;
 }
 
-.modal-footer {
+.modal-footer ,.modal-actions{
   padding: 0.75rem 1rem;
   border-top: 1px solid rgba(0,0,0,0.12);
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
+}
+.modal-actions{
+  padding-bottom:0px;
 }
 
 /* Close button */

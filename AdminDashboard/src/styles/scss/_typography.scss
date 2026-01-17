@@ -51,6 +51,15 @@ body {
   line-height: 1.5;
 }
 
+.modal-body  .subheading{
+      font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    padding-top: 2px;
+    padding-bottom: 7px;
+}
+
 /* Caption / Small Text */
 .caption {
   font-size: 0.875rem;     /* ~14px */

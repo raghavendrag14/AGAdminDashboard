@@ -1,0 +1,112 @@
+@use 'variables' as *;
+
+$sidebar-bg: #1d1f23;
+$sidebar-hover: #2a2d32;
+$sidebar-text: #e0e0e0;
+$sidebar-width: 260px;
+$font-family: 'Inter', sans-serif;
+
+.left-sidebar {
+    top: 44px;
+    left: 0;
+    position: fixed;
+    height: calc(100% - 44px);
+    z-index: 1100;
+}
+
+.right-sidebar {
+    top: 44px;
+    right: 0;
+    position: fixed;
+    height: calc(100% - 44px);
+    z-index: 1100;
+}
+
+.sidebar {
+    background: $sidebar-bg;
+    width: $sidebar-width;
+    padding: 1.5rem;
+    color: $sidebar-text;
+    font-family: $font-family;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    height: calc(100%);
+    z-index: 1100;
+    ;
+
+    .sidebar__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    .menu {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 0.5rem;
+
+                a,
+                div,
+                summary {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    text-decoration: none;
+                    color: $sidebar-text;
+                    font-size: 1.05rem;
+                    font-weight: 500;
+                    padding: 0.6rem 0.75rem;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: background 0.3s;
+
+                    &:hover {
+                        background: $sidebar-hover;
+                    }
+
+                    &::marker {
+                        content: "";
+                    }
+
+                    i {
+                        font-size: 1.2rem;
+                    }
+
+                 
+                }
+
+                ul {
+                    margin-left: 1.5rem;
+                    padding-left: 0.5rem;
+                    border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+                    li {
+                        margin-bottom: 0.25rem;
+
+                        a {
+                            font-size: 0.95rem;
+                        }
+                    }
+                }
+
+                summary::-webkit-details-marker {
+                    display: none;
+                }
+            }
+        }
+          .menu__group summary:after {
+                        content: "";
+                        width: 8px;
+                        height: 8px;
+                        border-right: 2px solid currentColor;
+                        border-bottom: 2px solid currentColor;
+                        transform: rotate(45deg);
+                        margin-left: 6px;
+                        transition: transform .2s ease;
+                        /* float: right; */
+                    }
+    }
+}

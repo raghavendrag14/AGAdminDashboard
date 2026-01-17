@@ -1,69 +1,63 @@
-/* ================================
-   Dropdown Component
-   ================================ */
-
+@use 'variables' as *;
+/* Dropdown container */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0; /* align to right by default */
-  min-width: 160px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  margin-top: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: none;
-  flex-direction: column;
-  padding: 0.25rem 0;
-  z-index: 2000;
+/* The toggle button */
+
+/* Caret arrow */
+.dropdown button::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-left: 6px;
+  transition: transform 0.2s ease;
 }
 
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  min-width: 200px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+/* Trick: use focus-within to open the menu */
+.dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Rotate arrow when open */
+.dropdown:focus-within button::after {
+  transform: rotate(-135deg);
+}
+
+/* Dropdown items */
 .dropdown-menu a {
   display: block;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  color: #333;
+  padding: 8px 10px;
   text-decoration: none;
-  transition: background 0.2s;
+  color: var(--text-color);
+  font-size: 14px;
 }
 
 .dropdown-menu a:hover {
-  background: #f5f5f5;
+  background: var(--primary);
+  color: var(--text-contrast);
 }
-
-/* Show dropdown when parent has .open */
-.dropdown.open .dropdown-menu {
-  display: flex;
-}
-
-/* Dark mode */
-[data-theme="dark"] .dropdown-menu {
-  background: #2c2c2c;
-  border-color: #444;
-}
-
-[data-theme="dark"] .dropdown-menu a {
-  color: #ddd;
-}
-
-[data-theme="dark"] .dropdown-menu a:hover {
-  background: #444;
-}
-/* Responsive: full width on small screens */
-@media (max-width: 600px) {
-    .dropdown-menu {
-        right: auto;
-        left: 0;
-        width: 100vw;
-        border-radius: 0;
-        box-shadow: none;
-        border-left: none;
-        border-right: none;
-    }
-    }
-    

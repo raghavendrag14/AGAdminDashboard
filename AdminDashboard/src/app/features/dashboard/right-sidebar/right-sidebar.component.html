@@ -1,0 +1,16 @@
+<div class="right-sidebar" *ngIf="sidebar.rightOpen()">
+    <aside class="sidebar">
+  <nav class="menu">
+    <ul>
+      <li><a href="javascript:void(0)"><i class="icon-home"></i>Notifications</a></li>
+      <li><a href="javascript:void(0)"><i class="icon-chart"></i>Messages</a></li>
+      <li><a href="javascript:void(0)" (click)="onProfile($event)"><i class="icon-trend"></i>Profile</a></li>
+
+      <li><a href="javascript:void(0)" (click)="sidebar.closeAll()"><i class="icon-menu"></i>Close</a></li>
+      <li><button type="button" class="btn btn-secondary" (click)="sidebar.toggleThemeMode()">Toggle Dark Theme</button></li>
+
+      <li><a href="javascript:void(0)" (click)="logout($event)"><i class="icon-bell"></i>Logout</a> </li>
+    </ul>
+  </nav>
+</aside>
+</div>

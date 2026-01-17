@@ -1,43 +1,33 @@
-<div class="login-container">
-    <div class="card login-card">
-    <div class="card-header">
-      <h2 class="page-title">Welcome Back</h2>
-      <p class="subheading">Login to continue</p>
-    </div>
 
-    <div class="card-body">
-      <form #form="ngForm">
-        <!-- Email -->
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" [(ngModel)]="username" placeholder="Enter your email" required />
-        </div>
 
-        <!-- Password -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" [(ngModel)]="password" placeholder="Enter your password" required />
-        </div>
 
-        <!-- Remember & Forgot -->
-        <div class="flex justify-between align-center">
-          <div class="form-check">
-            <input type="checkbox" id="remember" />
-            <label for="remember">Remember me</label>
+  <div class="login-page">
+    <div class="login-content">
+      <div class="login-left">
+        <h1>Innovate.<br>Connect. Grow</h1>
+        <ul class="points">
+          <li>Innovate. Build solutions for growth.</li>
+          <li>Connect. Create better experiences.</li>
+          <li>Grow. Gain inspiration every day.</li>
+        </ul>
+      </div>
+      
+      <div class="login-right">
+        <form class="login-form card">
+          <div class="form-group">
+            <input type="text" [(ngModel)]="username" placeholder="Username" required />
           </div>
-          <a href="#" class="link">Forgot password?</a>
-        </div>
-
-  <p *ngIf="error" class="error">{{ error }}</p>
-        <!-- Submit -->
-        <button type="submit" (ngSubmit)="onSubmit()"  class="btn btn-primary full-width mt-2">Login</button>
-      </form>
-    </div>
-
-    <div class="card-footer text-center">
-      <p>Don’t have an account? <a href="#">Sign up</a></p>
+          <div class="form-group">
+            <input type="password" [(ngModel)]="password" placeholder="Password" required />
+          </div>
+          <button type="submit" class="btn btn-primary login-btn"  (click)="onSubmit()" >Sign in</button>
+          <p class="caption mt-2 text-center">
+            Forgot your password? <a href="#">Recover account</a>
+          </p>
+        </form>
+      </div>
     </div>
   </div>
 
 
-</div>
+  

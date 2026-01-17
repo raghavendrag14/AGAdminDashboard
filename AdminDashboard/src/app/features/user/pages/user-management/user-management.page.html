@@ -1,0 +1,78 @@
+<app-page-header [title]="'User Management'" [actionsTemplate]="actionsTemplate"></app-page-header>
+
+<ng-template #actionsTemplate>
+  <div class="page-header-actions">
+    <button class="btn btn-primary" (click)="onAdd()">Add User</button>
+    <button class="btn btn-secondary">Import User</button>
+
+    <div class="dropdown" tabindex="0">
+      <button type="button" class="btn btn-primary">...</button>
+      <div class="dropdown-menu">
+        <a href="#">New File</a>
+        <a href="#">Duplicate</a>
+        <a href="#">Archive</a>
+        <hr />
+        <a href="#">Settings</a>
+        <a href="#">Help</a>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div class="user-page">
+  <div class="tab-content-inner">
+
+
+    <app-search-filter
+      [searchFields]="searchConfig"
+      [filterFields]="filterConfig"
+      (queryChanged)="onQueryChanged($event)"
+      [enableGlobalSearch]="true"
+      [globalPlaceholder]="'Search All'"
+    ></app-search-filter>
+
+    <!-- Table -->
+    <div class="section">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr class="sticky">
+              <th *ngFor="let col of sortConfig" (click)="onSort(col?.key)" [class.sortable]="col?.sortable">
+                {{ col?.label }}
+                <span *ngIf="col && table.sortKey() === col.key">
+                  <span *ngIf="table.sortDir() === 'asc'">▲</span>
+                  <span *ngIf="table.sortDir() === 'desc'">▼</span>
+                </span>
+              </th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of paginatedData()">
+              <td>{{ u.firstName || u.username }} {{ u.lastName || '' }}</td>
+              <td>{{ u.email }}</td>
+              <td>{{ u.roleName }}</td>
+              <td>
+                <button class="btn btn-secondary mr-2" title="View Profile" (click)="onProfile(u)">View</button>
+                <button class="btn btn-primary mr-2" (click)="onEdit(u)">Edit</button>
+                <button class="btn btn-primary "  (click)="onDelete(u)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  <app-pagination [totalItems]="pageTotelItems()" [pageSize]="pageSizeValue" (pageChanged)="onPageChanged($event)">
+    </app-pagination>
+
+  </div>
+</div>
+<ng-template #confirmTemplate let-user="id">
+  <p>Are you sure you want to delete user?</p>
+
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="modal.close(false)">Cancel</button>
+    <button class="btn btn-primary" (click)="modal.close(true)">Delete</button>
+  </div>
+</ng-template>

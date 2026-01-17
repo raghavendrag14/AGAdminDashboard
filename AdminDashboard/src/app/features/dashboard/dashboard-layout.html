@@ -1,0 +1,39 @@
+<div class="dashboard">
+
+
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div>
+
+      <div class="menu-button hamburger" id="hamburger" (click)="sidebar.toggleLeft()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <a href="#" class="navbar-logo"><img class="compay-logo" src="assets/images/company_logo.jpg" alt="Logo"
+          width="40" height="40" style="border-radius: 50%;" />INSIGHTS</a>
+
+    </div>
+    <!-- Menu (desktop) -->
+    <div class="navbar-menu">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+
+    <!-- Profile -->
+    <div class="navbar-profile" id="profile-menu" (click)="sidebar.toggleRight()">
+      <img src="https://i.pravatar.cc/150?img=3" alt="User">
+
+    </div>
+  </nav>
+
+  <div class="container mt-10">
+    <app-left-sidebar></app-left-sidebar>
+    <app-right-sidebar></app-right-sidebar>
+    <router-outlet></router-outlet>
+  </div>
+</div>

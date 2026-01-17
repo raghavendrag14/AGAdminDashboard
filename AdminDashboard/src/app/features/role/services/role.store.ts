@@ -6,8 +6,8 @@ import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class RoleStore {
-  private roles = signal<Role[]>([]);
-  private privileges = signal<Privilege[]>([]);
+  private roles = signal<any[]>([]);
+  private privileges = signal<any[]>([]);
   private loading = signal<boolean>(false);
   private error = signal<any>(null);
 
@@ -19,18 +19,26 @@ export class RoleStore {
   constructor(private api: RoleApiService) {}
 
   loadRoles() {
-    this.loading.set(true);
-    this.api.getAll().pipe(
-      tap(roles => { this.roles.set(roles); this.loading.set(false); }),
-      catchError(err => { this.error.set(err); this.loading.set(false); return of([]); })
-    ).subscribe();
+    //this.loading.set(true);
+    return this.api.getAll().subscribe(response => {
+      // 'response.data' contains the array you need
+      console.log('Roles fetched:', response);
+      console.log('Roles data:', response.roles);
+      this.roles.set(response.roles);  
+      console.log('Roles set in store:', this.roles());
+     // this.paginatedData
+    });
   }
 
   loadPrivileges() {
-    this.api.getAllPrivileges().pipe(
-      tap(privs => this.privileges.set(privs)),
-      catchError(err => { this.error.set(err); return of([]); })
-    ).subscribe();
+    this.api.getAllPrivileges().subscribe(response => {
+      // 'response.data' contains the array you need
+      console.log('privilege fetched:', response);
+      console.log('privilege data:', response.privileges);
+      this.privileges.set(response.privileges);  
+      console.log('privilege set in store:', this.privileges());
+     // this.paginatedData
+    });
   }
 
   createRole(role: Partial<Role>) {
@@ -41,7 +49,7 @@ export class RoleStore {
 
   assignPrivileges(roleId: string, privileges: string[]) {
     this.api.assignPrivileges(roleId, privileges).subscribe(updatedRole => {
-      this.roles.update(r => r.map(role => role.id === updatedRole.id ? updatedRole : role));
+      this.roles.update(r => r.map(role => role._id === updatedRole._id ? updatedRole : role));
     });
   }
 }

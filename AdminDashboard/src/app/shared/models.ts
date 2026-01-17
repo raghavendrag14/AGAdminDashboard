@@ -6,10 +6,13 @@ export interface Privilege {
 }
 
 export interface Role {
-  id: string;
-  name: string;
+  _id: string;
+  roleName: string;
+  roleCode:string;
   description?: string;
   privileges?: Privilege[];
+  createdAt:string;
+  updatedAt:string;
 }
 
 export interface CreateRoleDto {
@@ -17,3 +20,8 @@ export interface CreateRoleDto {
   description?: string;
   privilegeIds?: string[];
 }
+
+export interface RoleResponse {
+  roles: Role[];
+  total: number;
+} 

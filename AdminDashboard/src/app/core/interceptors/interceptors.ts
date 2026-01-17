@@ -4,7 +4,7 @@ import { catchError, tap, retryWhen, mergeMap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
 export const authInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('auth_token');
   if (token) {
     const cloned = req.clone({
       setHeaders: { Authorization: `Bearer ${token}` }
@@ -21,7 +21,7 @@ export const errorInterceptor = (req: HttpRequest<unknown>, next: HttpHandlerFn)
       // Avoid injecting Router here (can create cyclic/early injection issues).
       // Fallback to simple navigation for common auth errors.
       if (error.status === 401) {
-        window.location.href = '/auth/login';
+        window.location.href = '/login';
       }
       if (error.status === 403) {
         window.location.href = '/forbidden';

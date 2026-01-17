@@ -1,2 +1,23 @@
-/* Global styles for ADMINDASHBOARD - plain HTML UI */
-body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; padding: 16px; }
+@use "styles/scss/variables";
+@use "styles/scss/typography";
+@use "styles/scss/grid";
+@use "styles/scss/buttons";
+@use "styles/scss/forms";
+@use "styles/scss/utilities";
+@use "styles/scss/cards";
+@use "styles/scss/components";
+@use "styles/scss/table";
+//@use "styles/scss/sidebar";
+@use "styles/scss/sidebar1";
+@use "styles/scss/navbar";
+@use "styles/scss/menu";
+@use "styles/scss/modal";
+@use "styles/scss/placeholder";
+@use "styles/scss/pagination";
+@use "styles/scss/toaster";
+@use "styles/scss/breadcrumbs";
+@use "styles/scss/tabs";
+@use "styles/scss/page-header";
+@use "styles/scss/dropdown";
+@use "styles/scss/multiselect";
+@use "styles/scss/login";
